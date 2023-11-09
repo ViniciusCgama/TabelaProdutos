@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <h1>
+    Cadastro de produtos
+  </h1>
+  <div class="inputs">
+    <div class="col-4">
+      <div class=" mb-1">
+      Produto
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="produtoNome">
+  </div>
+
+  <div class="col-4">
+    <div class="mb-1">
+    <br>Id
+  </div>
+  <input type="number" class="form-control" [(ngModel)]="produtoId">
+</div>
+</div>
+<div class="bot">
+  <div class="d-flex flex-row-reverse">
+    <br><button type="button" class="btn btn-primary" (click)="adicionarNovoProduto()">Adicionar</button>
+  </div>
+</div>
+</div>
+
