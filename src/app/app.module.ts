@@ -14,7 +14,7 @@ import { CadastroService } from './Components/service/cadastro.component.service
     CadastroComponent,
     ListaComponent,
     HeaderComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

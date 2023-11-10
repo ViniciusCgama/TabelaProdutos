@@ -9,12 +9,31 @@
           <th></th>
         </tr>
       </thead>
-      <tr *ngFor="let produto of listaProdutos ; let i= index">
-        <td>{{produto.produtoNome}}</td>
-        <td>{{produto.produtoId}}</td>
-        <td><button (click)="excluirProduto(i)">Delete</button>
+      <tr *ngFor="let produto of listaProdutos; let i = index">
+        <td>
+          <span *ngIf="!cadastroService.isEditing(i)">{{ produto.produtoNome }}</span>
+          <input
+            *ngIf="cadastroService.isEditing(i)"
+            [(ngModel)]="produto.produtoNome"
+          />
+        </td>
+        <td>{{ produto.produtoId }}</td>
+        <td>
+          <button (click)="excluirProduto(i)">Delete</button>
+          <button (click)="editar(i, produto)">
+            {{ cadastroService.isEditing(i) ? 'Salvar' : 'Editar' }}
+          </button>
         </td>
       </tr>
     </table>
   </div>
 </div>
+
+<div class="history-container">
+  <h3>Historico</h3>
+  <ul>
+    <li *ngFor="let action of getHistory()">{{ action }}</li>
+  </ul>
+  <button (click)="clearHistory()">Limpar Historico</button>
+</div>
+
